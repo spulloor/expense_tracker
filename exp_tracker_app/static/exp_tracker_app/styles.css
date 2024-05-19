@@ -1,0 +1,14 @@
+.errorlist {
+    margin-top: 0;
+    list-style: none;
+    padding-left: 0;
+}
+
+.errorlist li {
+    margin-top: 5px;
+    color: red;
+}
+
+a.navbar-brand img {
+    width: 26px !important;
+}
