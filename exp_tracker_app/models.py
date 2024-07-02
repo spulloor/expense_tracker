@@ -44,3 +44,7 @@ class Item(models.Model):
     expense_incurred_on = models.DateField()
     created_on = models.DateField(auto_now_add=True)
     modified_on = models.DateField(auto_now=True)
+
+class ItemDocument(models.Model):
+    document = models.FileField(upload_to='documents')
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
