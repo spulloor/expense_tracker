@@ -9,6 +9,8 @@ import re
 from django import forms
 from django.contrib.auth import authenticate
 
+from .models import Item, ItemDocument
+
 User = get_user_model()  # Use custom model if defined
 
 def validate_name(value):
@@ -108,3 +110,13 @@ class LoginForm(forms.Form):
 
         cleaned_data['user'] = user
         return cleaned_data
+
+
+class ItemForm(forms.ModelForm):
+    class Meta:
+        model = Item
+        exclude = ['item_id', 'created_by']
+        widgets = {
+            'description': forms.Textarea,
+            'expense_incurred_on': forms.TextInput(attrs={'type': 'date'})
+        }
