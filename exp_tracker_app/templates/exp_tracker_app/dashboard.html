@@ -1,0 +1,38 @@
+{% extends "exp_tracker_app/base.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block title %}Expense Tracker Dashboard{% endblock title %}
+
+{% block content %}
+
+<h1>List of Expenses incurred by you</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Sr No.</th>
+            <th>Total Amount</th>
+            <th>Owed By</th>
+            <th>Breakdown Url</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1.</td>
+            <td>123</td>
+            <td>Ramesh</td>
+            <td><a href="#" class="btn btn-primary">Breakdown</a></td>
+        </tr>
+        <tr>
+            <td>2.</td>
+            <td>456S</td>
+            <td>Suresh</td>
+            <td><a href="#" class="btn btn-primary">Breakdown</a></td>
+        </tr>
+    </tbody>
+</table>
+
+<h1>List of Expenses incurred on you</h1>
+
+{% endblock content %}

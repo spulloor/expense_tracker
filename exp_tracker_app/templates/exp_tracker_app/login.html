@@ -1,5 +1,5 @@
 {% extends 'exp_tracker_app/base.html'%}
-{% load django_bootstrap5 %}
+{% load crispy_forms_tags %}
 
 {% block title %}Login{%endblock%}
 
@@ -9,9 +9,9 @@
 
     {% csrf_token %}  
         
-    {% bootstrap_form form %}
+    {{ form | crispy}}
 
-    {% bootstrap_button button_type="submit" content="Login" %}
+    <input type="submit" class="btn btn-primary" value="Login">
     
 </form>
 

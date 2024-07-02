@@ -1,13 +1,14 @@
 {% extends 'exp_tracker_app/base.html' %}
-{% load django_bootstrap5 %}
+{% load crispy_forms_tags %}
 {% block title %}Registration Form{% endblock %}
 {% block content %}
 <h1>Register</h1>
-    <form method="post" class="form-group">
+    <form method="post" class="form-group" action="{% url "exp_tracker_app:register" %}">
         {% csrf_token %}  
         
-        {% bootstrap_form form %}
-        {% bootstrap_button button_type="submit" content="Sign Up" %}
+        {{ form | crispy}}
+
+        <input type="submit" class="btn btn-primary" value="Register">
     </form>
 
 {% endblock %}

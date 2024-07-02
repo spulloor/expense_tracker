@@ -1,0 +1,13 @@
+{% extends "exp_tracker_app/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Create Expense{% endblock title %}
+
+{% block content %}
+    <form action="{% url "exp_tracker_app:create_expense" %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form | crispy}}
+
+        <input type="submit" value="Create Expense" class="btn btn-primary">
+    </form>
+{% endblock content %}
