@@ -12,3 +12,7 @@
 a.navbar-brand img {
     width: 26px !important;
 }
+
+.dropdown-menu-custom {
+    margin-left: -61px !important;
+}
