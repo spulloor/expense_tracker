@@ -14,7 +14,7 @@ from .models import Item, ItemDocument
 User = get_user_model()  # Use custom model if defined
 
 def validate_name(value):
-    if not value.isalpha() or len(value) < 3 or len(value) > 15:
+    if not re.search('[A-Za-z\s]+', value) or len(value) < 3 or len(value) > 15:
         raise ValidationError('Name must be 3-15 characters (alphabets and spaces only).')
 
 class RegistrationForm(UserCreationForm):
@@ -113,6 +113,11 @@ class LoginForm(forms.Form):
 
 
 class ItemForm(forms.ModelForm):
+
+    def __init__(self, user, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.expense_owed_by = forms.ModelMultipleChoiceField(queryset=User.objects.exclude(id = user.id))
+
     class Meta:
         model = Item
         exclude = ['item_id', 'created_by']

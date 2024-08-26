@@ -51,16 +51,16 @@ def create_expense(request):
     if request.user.is_authenticated:
 
         if request.method == 'POST':
-            form = ItemForm(request.POST)
+            form = ItemForm(request.user, request.POST)
             
             if form.is_valid():
                 expense = form.save(commit=False)
                 expense.created_by = request.user
                 form.save()
 
-                return redirect('expense_tracker:dashboard')
+                return redirect('exp_tracker_app:dashboard')
         else:
-            form = ItemForm()
+            form = ItemForm(request.user)
 
         return render(request, 'exp_tracker_app/create_expense.html', {'form': form})
     

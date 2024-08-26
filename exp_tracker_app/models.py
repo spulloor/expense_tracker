@@ -37,13 +37,14 @@ class Item(models.Model):
     name = models.CharField(max_length=30)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     quantity = models.IntegerField()
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, related_name='%(app_label)s_%(class)s_related')
     item_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     location = models.CharField(max_length=30)
     description = models.CharField(max_length=100)
     expense_incurred_on = models.DateField()
     created_on = models.DateField(auto_now_add=True)
     modified_on = models.DateField(auto_now=True)
+    expense_owed_by = models.ManyToManyField(User)  
 
 class ItemDocument(models.Model):
     document = models.FileField(upload_to='documents')
