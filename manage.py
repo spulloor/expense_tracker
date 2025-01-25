@@ -5,6 +5,7 @@ import sys
 
 
 # just a comment
+# another comment
 
 def main():
     """Run administrative tasks."""
