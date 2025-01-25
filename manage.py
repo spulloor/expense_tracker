@@ -4,9 +4,6 @@ import os
 import sys
 
 
-# just a comment
-# another comment
-
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'exp_tracker.settings')
